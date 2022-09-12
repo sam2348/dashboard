@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body,p {
+    font-family: 'Poppins' !important;
+    font-size: 14px;
+}
+a {
+    color: #00838F !important;
+    text-decoration: none !important;
+}
+
+.row {
+    margin: 0 !important;
+}
+.page-container {
+    padding-top: 53px;
+}
+h1.mb-20 {
+    font-weight: 400;
+    font-size: 32px;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+label {
+    font-weight: 600;
+}

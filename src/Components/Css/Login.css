@@ -1,0 +1,48 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+}
+p{
+    font-size: 14px;
+}
+a {
+    color: #00838F !important;
+    text-decoration: none !important;
+    font-weight: 600;
+}
+
+.bg {
+    background-color: #37474F;
+}
+
+button.btn.btn-primary {
+    width: 100%;
+    background-color: #00838F;
+    border: #00838F;
+}
+
+.form-check-input:checked {
+    background-color: #009688 !important;
+    border-color: #009688 !important;
+}
+
+h4.form-heading.mb-4.fs-5 {
+    font-weight: 600;
+}
+
+.row {
+    display: flex;
+    margin: 0px !important;
+    padding: 0;
+}
+
+.text-center {
+    margin: 60px 0;
+}
+
+
