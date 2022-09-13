@@ -1,41 +1,27 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './Css/Navbar.css'
 import { NavLink } from 'react-router-dom'
 import userPlaceholder from './img/user-placeholder.svg'
 import signStand from './img/sign-stand.svg'
 
 
-const Navbar = () => {
-  const [isLoggedin, setIsLoggedin] = useState(false)
+const Navbar = (props) => {
+  const isLoggedin = props.data;
+  const[data,setData]=useState()
+  const logoutHamdler =()=>{
+    setData(false)
+  }
+  const addData=()=>{
+    setData(isLoggedin)
+  }
+ useEffect(() => {
+  addData();
+ },[props])
+
+ 
   return (
     <>
-    { isLoggedin ? 
-    <>
-    <nav className="navbar navbar-expand-xl navbar-dark fixed-top navbar-main py-0 navbar-backend">
-  <div className="container-fluid ">
-    <a className="navbar-brand" href="#">
-      <img src="photo/nav.png" width="140px" />
-    </a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon" />
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item dropdown ">
-          <NavLink to="/Login" className="nav-link">
-            <i className="fa-solid fa-book" />Login
-          </NavLink>
-        </li>
-        <li className="nav-item dropdown">
-          <NavLink to="/Signup" className="nav-link">
-            <i className="fa-solid fa-book" />Signup
-          </NavLink>
-        </li>
-      </ul>
-     </div>
-    </div>
-</nav>
-    </> : 
+    { data ? 
     <>
     <nav className="navbar navbar-expand-xl navbar-dark fixed-top navbar-main py-0 navbar-backend">
   <div className="container-fluid ">
@@ -109,12 +95,12 @@ const Navbar = () => {
                   Admin API
                 </a>
               </li>
-              <li className="nav-item"><a href className="dropdown-item d-flex align-items-center">
+              <li className="nav-item" onClick={logoutHamdler}><NavLink to="" className="dropdown-item d-flex align-items-center">
                   <div className="navbar-icon">
                     <i className="fas fa-power-off" />
                   </div>     
                   &nbsp;Logout            
-                </a></li>
+                </NavLink></li>
               <li className="p-4 d-flex align-items-center justify-content-center">
                 <img src={signStand} width="80px" />
               </li>
@@ -125,6 +111,32 @@ const Navbar = () => {
       {/*------RIGHT SIDE*/}
     </div>
   </div>
+</nav>
+    </> : 
+    <>
+  <nav className="navbar navbar-expand-xl navbar-dark fixed-top navbar-main py-0 navbar-backend">
+   <div className="container-fluid ">
+    <a className="navbar-brand" href="#">
+      <img src="photo/nav.png" width="140px" />
+    </a>
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon" />
+    </button>
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <li className="nav-item dropdown ">
+          <NavLink to="/Login" className="nav-link">
+            <i className="fa-solid fa-book" />Login
+          </NavLink>
+        </li>
+        <li className="nav-item dropdown">
+          <NavLink to="/Signup" className="nav-link">
+            <i className="fa-solid fa-book" />Signup
+          </NavLink>
+        </li>
+      </ul>
+     </div>
+    </div>
 </nav>
     </>
     }

@@ -2,13 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Css/Login.css';
 
-const Login = () => {
-  const LoginHandler=()=>{
-    setIsLoggedin(true);
+const Login = ({LoginHandler}) => {
+  const Handler =()=>{
+    LoginHandler(true)
   }
+
+  
   return (
     <>
-  <div>
+  <div className='bg'>
   <header className="header">
   </header>
   <div className="page-container login-container">
@@ -46,7 +48,7 @@ const Login = () => {
                     <a href>Forgot Password?</a>
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary" onClick={LoginHandler}>Login <i className="fa-solid fa-right-to-bracket" /></button>
+                <button type="button" className="btn btn-primary" onClick={Handler}>Login <i className="fa-solid fa-right-to-bracket" /></button>
               </div></form>
             <div className="text-center mt-4 text-white ">
               Need an Skillabs Mail account? <NavLink to="/Signup" className="bottom-text">Create an account</NavLink>
